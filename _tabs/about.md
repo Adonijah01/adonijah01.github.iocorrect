@@ -3,10 +3,10 @@
 icon: fas fa-info-circle
 order: 4
 ---
-Hi, I'm Adonijah.  
+Hi, I'm Adonijah  
 I do cybersecurity. 
 
-![Desktop View](/assets/lib/giphy.webp){: .right }{: w="375" h="190" }
+![Desktop View](/assets/giphy.webp){: .right }{: w="375" h="190" }
 
 
 I'm a penetration tester and security enthusiast with a focus on ethical hacking, cloud security, and vulnerability assessments.  
