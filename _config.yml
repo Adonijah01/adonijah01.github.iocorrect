@@ -79,8 +79,9 @@ analytics:
 
 # Page views settings
 pageviews:
-  provider: # now only supports 'goatcounter'
-
+  provider: goatcounter
+  goatcounter:
+    code: "5524"  # Use the correct site code
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,
