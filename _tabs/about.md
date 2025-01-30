@@ -8,6 +8,7 @@ I do cybersecurity.
 
 I'm a penetration tester and security enthusiast with a focus on ethical hacking, cloud security, and vulnerability assessments.  
 
-In my free time, I play CTFs, build boot-to-root challenges, and refine my skills in exploit development and privilege escalation. I also enjoy sharing knowledge through tutoring and community engagement.  
+In my free time, I play CTFs, build boot-to-root challenges, and refine my skills in exploit development and privilege escalation. I also enjoy sharing knowledge through tutoring and community engagement.
 
+Vim over Nano, by the way. 
 Always learning, always hacking.  
