@@ -3,9 +3,6 @@
 icon: fas fa-info-circle
 order: 4
 ---
-
-# About Me
-
 Hi, I'm Adonijah.  
 I do cybersecurity.  
 
