@@ -4,9 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-# About Me
-
-I am passionate about cybersecurity, penetration testing, and knowledge sharing within the InfoSec community. My journey involves participating in Capture The Flag (CTF) competitions, developing boot-to-root challenges, and mentoring aspiring cybersecurity professionals.
+Passionate about cybersecurity, penetration testing, and knowledge sharing within the InfoSec community. My journey involves participating in Capture The Flag (CTF) competitions, developing boot-to-root challenges, and mentoring aspiring cybersecurity professionals.
 
 ## Experience & Skills
 
