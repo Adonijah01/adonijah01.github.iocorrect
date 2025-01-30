@@ -23,5 +23,3 @@ Want to reach me securely? Encrypt your message with my PGP key:
 Or, if you prefer plaintext, you can find me here:  
   
 - **GitHub:** [adonijah01](https://github.com/adonijah01)  
-- **LinkedIn:** [adonijah-kiplimo](www.linkedin.com/in/
-adonijah-kiplimo)    
