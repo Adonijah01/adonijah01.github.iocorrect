@@ -14,3 +14,4 @@ end
 gem "wdm", "~> 0.2.0", :platforms => [:mingw, :x64_mingw, :mswin]
 
 gem "github-pages", group: :jekyll_plugins
+gem 'github-pages', '~> 226.0'
