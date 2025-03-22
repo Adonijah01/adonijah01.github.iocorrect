@@ -54,7 +54,7 @@ a:hover {
 
 ## ⚡ Hackers' Library 📂
 
-| 📜 Document | 📥 Download |
+| 📜 Book | 📥 Download |
 |------------|------------|
 | **Android Hacker's Handbook**<br>_By Joshua J. Drake, Zach Lanier, Collin Mulliner, Pau Oliva Fora, Stephen A. Ridley, and Georg Wicherski_ | [📄 Download](../assets/downloads/Android Hacker's Handbook by Joshua J. Drake, Zach Lanier, Collin Mulliner, Pau Oliva Fora, Stephen A. Ridley and Georg Wicherski.pdf) |
 
