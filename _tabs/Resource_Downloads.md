@@ -10,8 +10,6 @@ Here you can find various documents for reading. Click on a document to download
 
 ## Available Documents
 
-- [Document 1](../assets/downloads/document1.pdf)
-- [Document 2](../assets/downloads/document2.pdf)
-- [Document 3](../assets/downloads/document3.pdf)
+- [Document 1](../assets/downloads/Android Hacker's Handbook by Joshua J. Drake, Zach Lanier, Collin Mulliner, Pau Oliva Fora, Stephen A. Ridley and Georg Wicherski.pdf)
 
 ---
