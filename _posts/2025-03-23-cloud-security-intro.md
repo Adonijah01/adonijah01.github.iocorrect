@@ -1,14 +1,14 @@
 ---
 title: "Introduction to Cloud Security: AWS, GCP, and Azure"
 date: 2025-03-23
-image: /assets/battle-of-aws-azure-and-gcp.jpg
+image: /assets/awsgcpazure.jpg
 tags: [Cloud Security, AWS, GCP, Azure, Vulnerabilities]
 ---
 
 ## Understanding Cloud Computing
 Cloud computing has transformed how businesses and individuals deploy, store, and manage applications. The three major cloud providers—**Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure**—offer a variety of services that cater to computing, storage, networking, security, and AI-driven applications. 
 
-![Desktop View](/assets/battle-of-aws-azure-and-gcp.jpg){: .right }{: w="375" h="190" }
+![Desktop View](/assets/awsgcpazure.jpg){: .right }{: w="375" h="190" }
 
 ### What Are AWS, GCP, and Azure?
 #### **Amazon Web Services (AWS)**
