@@ -62,10 +62,9 @@ a:hover {
 
 ### 📌 How to Use
 🖥️ **Step 1:** Click a document to initiate the download.  
-👨‍💻 **Step 2:** Read, analyze, and level up your **hacking** skills.  
-🌐 **Step 3:** Stay updated—more resources will be added soon.  
+👨‍💻 **Step 2:** Read, analyze, and level up your **hacking** skills. 
 
-📡 **Need a specific resource?** Send a request to: [r00t@kimutsec.com](mailto:r00t@kimutsec.com)  
+📡 **Need a specific resource?** Send a request to: [a@kimutsec.com](mailto:r00t@kimutsec.com)  
 
 ---
 
