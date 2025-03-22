@@ -1,6 +1,7 @@
 ---
 title: "Introduction to Cloud Security: AWS, GCP, and Azure"
 date: 2025-03-23
+image: /assets/battle-of-aws-azure-and-gcp.jpg
 tags: [Cloud Security, AWS, GCP, Azure, Vulnerabilities]
 ---
 
