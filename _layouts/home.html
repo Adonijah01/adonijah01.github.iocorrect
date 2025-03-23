@@ -1,6 +1,8 @@
-<div id="news-container">
-  <h2 class="glitch">⚡ Latest Cybersecurity News</h2>
-  <pre id="news-terminal"></pre>
+<div id="news-section">
+  <div id="news-container">
+    <h2 class="glitch">⚡ Latest Cybersecurity News</h2>
+    <pre id="news-terminal"></pre>
+  </div>
 </div>
 
 <script>
@@ -9,7 +11,7 @@
     try {
       let response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
       let data = await response.json();
-      
+
       let newsItems = data.items.slice(0, 5).map(item => `[+] ${item.title} - ${item.link}`);
       typeWriterEffect(newsItems, 0);
       
@@ -27,7 +29,9 @@
 
     function type() {
       if (i < text.length) {
-        terminal.textContent += text.charAt(i);
+        let span = document.createElement("span");
+        span.textContent = text.charAt(i);
+        terminal.appendChild(span);
         i++;
         setTimeout(type, 50); // Adjust speed here
       } else {
@@ -42,6 +46,11 @@
 </script>
 
 <style>
+  #news-section {
+    max-width: 600px; /* Prevents full-page takeover */
+    margin: 20px auto;
+  }
+
   #news-container {
     background: black;
     color: #00ff00;
@@ -49,8 +58,9 @@
     padding: 10px;
     border: 1px solid #00ff00;
     text-align: left;
-    margin-bottom: 20px;
     white-space: pre-wrap;
+    max-height: 250px; /* Limit height */
+    overflow-y: auto; /* Add scrolling */
   }
 
   .glitch {
@@ -59,10 +69,12 @@
   }
 
   #news-terminal {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #00ff00;
     white-space: pre-wrap;
     overflow: hidden;
+    max-height: 200px;
+    overflow-y: auto; /* Allows scrolling */
   }
 </style>
