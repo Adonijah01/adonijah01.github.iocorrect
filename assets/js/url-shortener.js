@@ -11,22 +11,10 @@ async function shortenURL() {
         let response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
         let shortUrl = await response.text();
 
-        typeText(resultElement, `<a href="${shortUrl}" target="_blank">${shortUrl}</a>`);
+        // Ensure HTML rendering
+        resultElement.innerHTML = `<a href="${shortUrl}" target="_blank" style="color: #00ff00; text-decoration: none;">${shortUrl}</a>`;
     } catch (error) {
         console.error("Error shortening URL:", error);
         resultElement.innerHTML = "<p style='color:red;'>SYSTEM FAILURE: Try Again.</p>";
     }
-}
-
-function typeText(element, text, speed = 50) {
-    element.innerHTML = "";
-    let i = 0;
-    function typing() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
-        }
-    }
-    typing();
 }
