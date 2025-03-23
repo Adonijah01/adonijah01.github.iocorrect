@@ -1,0 +1,68 @@
+<div id="news-container">
+  <h2 class="glitch">⚡ Latest Cybersecurity News</h2>
+  <pre id="news-terminal"></pre>
+</div>
+
+<script>
+  async function fetchNews() {
+    const rssUrl = "https://feeds.feedburner.com/TheHackersNews"; // Hacker News RSS
+    try {
+      let response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
+      let data = await response.json();
+      
+      let newsItems = data.items.slice(0, 5).map(item => `[+] ${item.title} - ${item.link}`);
+      typeWriterEffect(newsItems, 0);
+      
+    } catch (error) {
+      typeWriterEffect(["⚠️ Failed to load news."], 0);
+    }
+  }
+
+  function typeWriterEffect(lines, index) {
+    if (index >= lines.length) return;
+    
+    let terminal = document.getElementById("news-terminal");
+    let text = lines[index] + "\n";
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        terminal.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 50); // Adjust speed here
+      } else {
+        setTimeout(() => typeWriterEffect(lines, index + 1), 500);
+      }
+    }
+    
+    type();
+  }
+
+  fetchNews();
+</script>
+
+<style>
+  #news-container {
+    background: black;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    padding: 10px;
+    border: 1px solid #00ff00;
+    text-align: left;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+  }
+
+  .glitch {
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+
+  #news-terminal {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00ff00;
+    white-space: pre-wrap;
+    overflow: hidden;
+  }
+</style>
