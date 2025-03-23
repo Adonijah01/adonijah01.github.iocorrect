@@ -3,7 +3,7 @@ async function shortenURL() {
     let resultElement = document.getElementById("short-url");
 
     if (!longUrl) {
-        resultElement.innerHTML = "<p style='color:red;'>Please enter a URL.</p>";
+        resultElement.innerHTML = "<p style='color:red;'>ERROR: No URL entered.</p>";
         return;
     }
 
@@ -11,9 +11,22 @@ async function shortenURL() {
         let response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
         let shortUrl = await response.text();
 
-        resultElement.innerHTML = `<a href="${shortUrl}" target="_blank">${shortUrl}</a>`;
+        typeText(resultElement, `<a href="${shortUrl}" target="_blank">${shortUrl}</a>`);
     } catch (error) {
         console.error("Error shortening URL:", error);
-        resultElement.innerHTML = "<p style='color:red;'>Failed to shorten URL. Try again.</p>";
+        resultElement.innerHTML = "<p style='color:red;'>SYSTEM FAILURE: Try Again.</p>";
     }
+}
+
+function typeText(element, text, speed = 50) {
+    element.innerHTML = "";
+    let i = 0;
+    function typing() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        }
+    }
+    typing();
 }
