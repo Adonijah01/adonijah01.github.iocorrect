@@ -127,7 +127,7 @@ a:hover {
         <p>🎙️ **Ep. 132 - Ghost Exodus**</p>
     </div>
     <div class="video-item">
-        <iframe src="https://www.youtube.com/watch?v=f2YONut4F6Q&list=PLtN43kak3fFEEDNo0ks9QVKYfQpT2yUEo" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/f2YONut4F6Q?si=tYMA5m_Obhu1w9Ru" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>🎙️ **Ep. 156 - There's No Way This "Hitman for Hire" Website Is Real...Right?💀Darknet Diaries Ep. 156: Kill List **</p>
     </div>
 </div>
