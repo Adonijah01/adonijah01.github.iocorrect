@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             name: "Ethical Hacker",
-            issuer: "EC-Council",
+            issuer: "Cisco",
             image: "https://images.credly.com/size/64x64/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png"
         }
     ];
