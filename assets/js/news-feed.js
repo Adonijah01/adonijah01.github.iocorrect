@@ -2,24 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const newsContainer = document.getElementById("news-feed");
 
     const feeds = [
-        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews", // The Hacker News
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/", // Bleeping Computer
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml", // Dark Reading
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.securityweek.com/feed", // SecurityWeek
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.fsf.org/news/rss.xml", // FSF
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.linuxsecurity.com/rss/news_articles", // Linux Security
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.csoonline.com/uk/index.rss", // CSO Online
-        "https://api.rss2json.com/v1/api.json?rss_url=https://threatpost.com/feed/", // ThreatPost
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.krebsonsecurity.com/feed/", // Krebs on Security
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.cybersecurity-insiders.com/feed/", // Cybersecurity Insiders
-        "https://api.rss2json.com/v1/api.json?rss_url=https://securityaffairs.com/feed", // Security Affairs
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.malwarebytes.com/blog/feed/", // Malwarebytes Blog
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.trendmicro.com/en_us/research/rss.html", // Trend Micro
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.databreaches.net/feed/", // DataBreaches.net
-        "https://api.rss2json.com/v1/api.json?rss_url=https://haveibeenpwned.com/feed", // Have I Been Pwned?
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.akamai.com/blog.rss", // Akamai Blog (DDoS Protection)
-        "https://api.rss2json.com/v1/api.json?rss_url=https://www.cloudflare.com/feed/" // Cloudflare Blog
+        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/",
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml"
     ];
+
+    const ctfFeed = "https://ctftime.org/api/v1/events/?limit=10"; // Fetch upcoming CTFs
 
     async function fetchNews() {
         try {
@@ -32,22 +20,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            // Sort news by latest date
             allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-            // Clear loading text
             newsContainer.innerHTML = "";
 
-            // Display news articles (limit to 20)
-            allNews.slice(0, 20).forEach(article => {
+            allNews.slice(0, 10).forEach(article => {
                 let newsItem = document.createElement("div");
+                let readStatus = localStorage.getItem(article.link) ? "read" : "unread";
+                
                 newsItem.innerHTML = `
-                    <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
+                    <h3 class="${readStatus}">
+                        <a href="${article.link}" target="_blank" data-url="${article.link}">${article.title}</a>
+                    </h3>
                     <p>${article.description.slice(0, 150)}...</p>
                     <small>${new Date(article.pubDate).toLocaleDateString()}</small>
                     <hr>
                 `;
                 newsContainer.appendChild(newsItem);
+            });
+
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function () {
+                    localStorage.setItem(this.dataset.url, "read");
+                    this.parentElement.classList.add("read");
+                    this.parentElement.classList.remove("unread");
+                });
             });
         } catch (error) {
             console.error("Error fetching news:", error);
@@ -55,5 +51,42 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    async function fetchCTFs() {
+        try {
+            const response = await fetch(ctfFeed);
+            const ctfData = await response.json();
+            let ctfContainer = document.createElement("div");
+            ctfContainer.innerHTML = "<h2>Upcoming CTFs</h2>";
+            
+            ctfData.forEach(event => {
+                let ctfItem = document.createElement("div");
+                let ctfStatus = localStorage.getItem(event.ctftime_url) ? "read" : "unread";
+
+                ctfItem.innerHTML = `
+                    <h3 class="${ctfStatus}">
+                        <a href="${event.ctftime_url}" target="_blank" data-url="${event.ctftime_url}">${event.title}</a>
+                    </h3>
+                    <p>Start: ${new Date(event.start).toLocaleString()}</p>
+                    <p>End: ${new Date(event.finish).toLocaleString()}</p>
+                    <hr>
+                `;
+                ctfContainer.appendChild(ctfItem);
+            });
+
+            newsContainer.appendChild(ctfContainer);
+
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function () {
+                    localStorage.setItem(this.dataset.url, "read");
+                    this.parentElement.classList.add("read");
+                    this.parentElement.classList.remove("unread");
+                });
+            });
+        } catch (error) {
+            console.error("Error fetching CTFs:", error);
+        }
+    }
+
     fetchNews();
+    fetchCTFs();
 });
