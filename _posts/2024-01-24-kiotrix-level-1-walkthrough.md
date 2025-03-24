@@ -28,7 +28,7 @@ Execute the following command on your attack machine to check if Kioptrix Level 
 arp-scan -l
 ```
 If Kioptrix is not detected, troubleshoot and ensure it is installed correctly.
-## there's an image here 
+![Kioptrix VM Running](../assets/2kioptrix.png)
 Identified IP address:
 ```bash
 192.168.10.171
@@ -40,21 +40,22 @@ Run an Nmap scan to identify open ports and services:
 nmap -A -p- -T4 192.168.10.171
 ```
 The results show that **port 80 is open**, displaying a test page in the browser.
-## there are 2 images here
+![Kioptrix VM Running](../assets/3kioptrix.png)
+![Kioptrix VM Running](../assets/4kioptrix.png)
 Additionally, **Samba service** is detected, which will be crucial for privilege escalation.
 
 ### Step 3: Samba Enumeration
 Utilize `enum4linux` and `smbclient` to confirm the presence of Samba on the remote host.
-## theres an image here
+![Kioptrix VM Running](../assets/5kioptrix.png)
 Start Metasploit and use the auxiliary scanner:
-## theres an image here
+![Kioptrix VM Running](../assets/6kioptrix.png)
 ```bash
 msfconsole
 use auxiliary/scanner/smb/smb_version
 set RHOSTS 192.168.10.171
 run
 ```
-## theres an image here
+![Kioptrix VM Running](../assets/7kioptrix.png)
 The results show that **Samba 2.2.1a** is running, which is vulnerable to multiple exploits.
 
 ### Step 4: Exploitation - Samba 2.2.1a
@@ -63,7 +64,7 @@ Search for available exploits using `searchsploit`:
 searchsploit samba 2.2.1a
 ```
 The results show multiple exploits, and we choose `multiple/remote/10.c`.
-## theres an image here
+![Kioptrix VM Running](../assets/8kioptrix.png)
 Download the exploit:
 ```bash
 searchsploit -m multiple/remote/10.c
