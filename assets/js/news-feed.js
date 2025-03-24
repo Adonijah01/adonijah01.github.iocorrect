@@ -21,15 +21,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-            newsContainer.innerHTML = "";
+            newsContainer.innerHTML = "<h2>Cybersecurity News</h2>";
 
             allNews.slice(0, 10).forEach(article => {
-                let newsItem = document.createElement("div");
-                let readStatus = localStorage.getItem(article.link) ? "read" : "unread";
+                let isRead = localStorage.getItem(article.link) ? true : false;
                 
+                let newsItem = document.createElement("div");
                 newsItem.innerHTML = `
-                    <h3 class="${readStatus}">
-                        <a href="${article.link}" target="_blank" data-url="${article.link}">${article.title}</a>
+                    <h3>
+                        <a href="${article.link}" target="_blank" data-url="${article.link}" class="${isRead ? 'read' : 'unread'}">
+                            ${article.title}
+                        </a>
+                        <span class="status">${isRead ? '✅ Read' : '🔵 Unread'}</span>
                     </h3>
                     <p>${article.description.slice(0, 150)}...</p>
                     <small>${new Date(article.pubDate).toLocaleDateString()}</small>
@@ -41,8 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", function () {
                     localStorage.setItem(this.dataset.url, "read");
-                    this.parentElement.classList.add("read");
-                    this.parentElement.classList.remove("unread");
+                    this.classList.add("read");
+                    this.classList.remove("unread");
+                    this.nextElementSibling.textContent = "✅ Read";
                 });
             });
         } catch (error) {
@@ -59,12 +63,15 @@ document.addEventListener("DOMContentLoaded", function () {
             ctfContainer.innerHTML = "<h2>Upcoming CTFs</h2>";
             
             ctfData.forEach(event => {
+                let isRead = localStorage.getItem(event.ctftime_url) ? true : false;
+                
                 let ctfItem = document.createElement("div");
-                let ctfStatus = localStorage.getItem(event.ctftime_url) ? "read" : "unread";
-
                 ctfItem.innerHTML = `
-                    <h3 class="${ctfStatus}">
-                        <a href="${event.ctftime_url}" target="_blank" data-url="${event.ctftime_url}">${event.title}</a>
+                    <h3>
+                        <a href="${event.ctftime_url}" target="_blank" data-url="${event.ctftime_url}" class="${isRead ? 'read' : 'unread'}">
+                            ${event.title}
+                        </a>
+                        <span class="status">${isRead ? '✅ Read' : '🔵 Unread'}</span>
                     </h3>
                     <p>Start: ${new Date(event.start).toLocaleString()}</p>
                     <p>End: ${new Date(event.finish).toLocaleString()}</p>
@@ -78,8 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", function () {
                     localStorage.setItem(this.dataset.url, "read");
-                    this.parentElement.classList.add("read");
-                    this.parentElement.classList.remove("unread");
+                    this.classList.add("read");
+                    this.classList.remove("unread");
+                    this.nextElementSibling.textContent = "✅ Read";
                 });
             });
         } catch (error) {
