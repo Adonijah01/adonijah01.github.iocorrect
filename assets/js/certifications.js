@@ -1,38 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
     const certContainer = document.getElementById("certifications");
 
-    // Replace `your_credly_username` with your actual Credly username
-    const credlyAPI = "https://www.credly.com/users/adonijah-kiplimo/badges.json";
-
-    async function fetchCertifications() {
-        try {
-            const response = await fetch(credlyAPI);
-            const data = await response.json();
-
-            if (data.data.length > 0) {
-                certContainer.innerHTML = ""; // Clear the loading text
-                data.data.forEach(cert => {
-                    let certDiv = document.createElement("div");
-                    certDiv.innerHTML = `
-                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <img src="${cert.badge_template.image_url}" alt="${cert.badge_template.name}" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 10px;">
-                            <div>
-                                <h4>${cert.badge_template.name}</h4>
-                                <p>Issued by: ${cert.badge_template.issuer.name}</p>
-                                <a href="https://www.credly.com/badges/${cert.id}" target="_blank">View Certification</a>
-                            </div>
-                        </div>
-                    `;
-                    certContainer.appendChild(certDiv);
-                });
-            } else {
-                certContainer.innerHTML = "<p>No certifications found.</p>";
-            }
-        } catch (error) {
-            console.error("Error fetching certifications:", error);
-            certContainer.innerHTML = "<p>Failed to load certifications. Please try again later.</p>";
+    // Manually add certifications (Credly does NOT allow public API access)
+    const certifications = [
+        {
+            name: "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+            issuer: "Microsoft",
+            image: "https://images.credly.com/size/110x110/images/242902b5-f527-42ad-865e-977c9e1b5b58/image.png",
+            link: "https://www.credly.com/badges/YOUR_CERT_ID"
+        },
+        {
+            name: "AWS Certified Security – Specialty",
+            issuer: "Amazon Web Services",
+            image: "https://images.credly.com/size/110x110/images/ANOTHER_IMAGE_ID/image.png",
+            link: "https://www.credly.com/badges/ANOTHER_CERT_ID"
         }
-    }
+        // Add more certifications here
+    ];
 
-    fetchCertifications();
+    if (certifications.length > 0) {
+        certContainer.innerHTML = ""; // Clear loading text
+        certifications.forEach(cert => {
+            let certDiv = document.createElement("div");
+            certDiv.innerHTML = `
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="${cert.image}" alt="${cert.name}" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 10px;">
+                    <div>
+                        <h4>${cert.name}</h4>
+                        <p>Issued by: ${cert.issuer}</p>
+                        <a href="${cert.link}" target="_blank">View Certification</a>
+                    </div>
+                </div>
+            `;
+            certContainer.appendChild(certDiv);
+        });
+    } else {
+        certContainer.innerHTML = "<p>No certifications found.</p>";
+    }
 });
