@@ -1,7 +1,7 @@
 ---
-title: "Kiotrix Level 1 Walkthrough"
+title: "Vulhub-Kiotrix Level 1 Walkthrough"
 date: 2024-01-24
-categories: [Writeups, CTF]
+categories: [Vulnhub, CTF ]
 tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
 ---
