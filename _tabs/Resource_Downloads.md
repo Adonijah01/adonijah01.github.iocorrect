@@ -115,19 +115,19 @@ a:hover {
 
 <div class="video-grid">
     <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/FHng8HHaU8M" allowfullscreen></iframe>
-        <p>🎙️ **Ep. 121 - XBox Underground**</p>
+        <iframe src="https://www.youtube.com/embed/xt1kksN4-20?si=xwDnWh6RyGvE9LFI" allowfullscreen></iframe>
+        <p>🎙️ **Ep. 121 - Hacking Is Life-or-Death When You Target a Hospital🎙Darknet Diaries Ep. 121: Ed**</p>
     </div>
     <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/zOjw8pSW1IU" allowfullscreen></iframe>
-        <p>🎙️ **Ep. 129 - The Great SIM Heist**</p>
+        <iframe src="https://www.youtube.com/embed/QALfLoP_nOo?si=7SL4Qj7rIsE7N9pq" allowfullscreen></iframe>
+        <p>🎙️ ** 8 Biggest Cyber Heists Ever Pulled Offt**</p>
     </div>
     <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/PUgdXKDOGnw" allowfullscreen></iframe>
-        <p>🎙️ **Ep. 132 - Ghost Exodus**</p>
+        <iframe src="https://www.youtube.com/embed/bQ1W-oNbjdE?si=ils3oR6O-XgQHavU" allowfullscreen></iframe>
+        <p>🎙️ **Ep. 105 - Even If Your Phone's Encrypted, the Cops Found a Way In🎙Darknet Diaries Ep. 105 Secret Cells**</p>
     </div>
     <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/f2YONut4F6Q?si=qUkjqf7UE2WWgy5a" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/f2YONut4F6Q?si=5yx1clpiMOKi6Yll" allowfullscreen></iframe>
         <p>🎙️ **Ep. 156 - There's No Way This "Hitman for Hire" Website Is Real...Right?💀Darknet Diaries Ep. 156: Kill List **</p>
     </div>
 </div>
