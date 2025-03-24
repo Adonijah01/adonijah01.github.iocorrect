@@ -18,7 +18,7 @@ Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the 
 Before you begin, ensure that you have the following:
 - **Kali Linux** or any other preferred penetration testing distribution.
 - **Kioptrix Level 1 VM** installed and running.
-![Kioptrix VM Running](../assets/1kioptrix.png)
+![Kioptrix VM Running](../assets/1kioprix.png)
 
 ## Walkthrough
 ### Step 1: Reconnaissance
