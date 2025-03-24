@@ -1,112 +1,59 @@
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
     const newsContainer = document.getElementById("news-feed");
-    const ctfContainer = document.getElementById("ctf-feed");
 
     const feeds = [
-        "https://feeds.feedburner.com/TheHackersNews",
-        "https://www.bleepingcomputer.com/feed/",
-        "https://www.darkreading.com/rss.xml",
-        "https://www.securityweek.com/feed",
-        "https://www.scmagazine.com/rss.xml",
-        "https://www.infosecurity-magazine.com/rss/news/",
-        "https://haveibeenpwned.com/LatestBreaches/rss",
-        "https://www.databreaches.net/feed/",
-        "https://blog.cloudflare.com/rss/",
-        "https://vx-underground.substack.com/feed",
-        "https://cointelegraph.com/rss/tag/hacks",
-        "https://www.exploit-db.com/rss.xml"
+        "https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews", // The Hacker News
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.bleepingcomputer.com/feed/", // Bleeping Computer
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.darkreading.com/rss.xml", // Dark Reading
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.securityweek.com/feed", // SecurityWeek
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.fsf.org/news/rss.xml", // FSF
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.linuxsecurity.com/rss/news_articles", // Linux Security
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.csoonline.com/uk/index.rss", // CSO Online
+        "https://api.rss2json.com/v1/api.json?rss_url=https://threatpost.com/feed/", // ThreatPost
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.krebsonsecurity.com/feed/", // Krebs on Security
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.cybersecurity-insiders.com/feed/", // Cybersecurity Insiders
+        "https://api.rss2json.com/v1/api.json?rss_url=https://securityaffairs.com/feed", // Security Affairs
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.malwarebytes.com/blog/feed/", // Malwarebytes Blog
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.trendmicro.com/en_us/research/rss.html", // Trend Micro
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.databreaches.net/feed/", // DataBreaches.net
+        "https://api.rss2json.com/v1/api.json?rss_url=https://haveibeenpwned.com/feed", // Have I Been Pwned?
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.akamai.com/blog.rss", // Akamai Blog (DDoS Protection)
+        "https://api.rss2json.com/v1/api.json?rss_url=https://www.cloudflare.com/feed/" // Cloudflare Blog
     ];
-
-    const ctfFeed = "https://ctftime.org/api/v1/events/?limit=10";
-
-    async function fetchRSS(url) {
-        try {
-            const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
-            const data = await response.json();
-            return new window.DOMParser().parseFromString(data.contents, "text/xml");
-        } catch (error) {
-            console.error(`Error fetching RSS for ${url}:`, error);
-            return null;
-        }
-    }
 
     async function fetchNews() {
         try {
             let allNews = [];
-            
             for (const feed of feeds) {
-                const xmlData = await fetchRSS(feed);
-                if (!xmlData) continue;
-
-                const items = xmlData.querySelectorAll("item");
-                items.forEach(item => {
-                    allNews.push({
-                        title: item.querySelector("title").textContent,
-                        link: item.querySelector("link").textContent,
-                        description: item.querySelector("description").textContent.slice(0, 150) + "...",
-                        pubDate: new Date(item.querySelector("pubDate").textContent)
-                    });
-                });
+                const response = await fetch(feed);
+                const data = await response.json();
+                if (data.items) {
+                    allNews = allNews.concat(data.items);
+                }
             }
 
-            allNews.sort((a, b) => b.pubDate - a.pubDate);
-            newsContainer.innerHTML = "<h2>Cybersecurity & Hacking News</h2>";
+            // Sort news by latest date
+            allNews.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-            if (allNews.length === 0) {
-                newsContainer.innerHTML += "<p>No recent news found.</p>";
-                return;
-            }
+            // Clear loading text
+            newsContainer.innerHTML = "";
 
-            allNews.slice(0, 15).forEach(article => {
+            // Display news articles (limit to 20)
+            allNews.slice(0, 20).forEach(article => {
                 let newsItem = document.createElement("div");
                 newsItem.innerHTML = `
-                    <h3>
-                        <a href="${article.link}" target="_blank" style="text-decoration: none; font-weight: bold;">${article.title}</a>
-                    </h3>
-                    <p>${article.description}</p>
-                    <small>${article.pubDate.toLocaleDateString()}</small>
+                    <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
+                    <p>${article.description.slice(0, 150)}...</p>
+                    <small>${new Date(article.pubDate).toLocaleDateString()}</small>
                     <hr>
                 `;
                 newsContainer.appendChild(newsItem);
             });
-
         } catch (error) {
             console.error("Error fetching news:", error);
             newsContainer.innerHTML = "<p>Failed to load news. Please try again later.</p>";
         }
     }
 
-    async function fetchCTFs() {
-        try {
-            const response = await fetch(ctfFeed);
-            const ctfData = await response.json();
-
-            ctfContainer.innerHTML = "<h2>Upcoming CTFs</h2>";
-
-            if (!Array.isArray(ctfData) || ctfData.length === 0) {
-                ctfContainer.innerHTML += "<p>No upcoming CTFs found.</p>";
-                return;
-            }
-
-            ctfData.forEach(event => {
-                let ctfItem = document.createElement("div");
-                ctfItem.innerHTML = `
-                    <h3>
-                        <a href="${event.ctftime_url}" target="_blank" style="text-decoration: none; font-weight: bold;">${event.title}</a>
-                    </h3>
-                    <p>Start: ${new Date(event.start).toLocaleString()}</p>
-                    <p>End: ${new Date(event.finish).toLocaleString()}</p>
-                    <hr>
-                `;
-                ctfContainer.appendChild(ctfItem);
-            });
-
-        } catch (error) {
-            console.error("Error fetching CTFs:", error);
-            ctfContainer.innerHTML = "<p>Failed to load CTFs. Please try again later.</p>";
-        }
-    }
-
     fetchNews();
-    fetchCTFs();
 });
