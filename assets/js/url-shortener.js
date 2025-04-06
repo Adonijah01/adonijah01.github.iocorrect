@@ -3,7 +3,7 @@ async function shortenURL() {
     let resultElement = document.getElementById("short-url");
 
     if (!longUrl) {
-        resultElement.innerHTML = "<p style='color:red;'>ERROR: No URL entered.</p>";
+        resultElement.innerHTML = "<p style='color:red;'>ERROR: No URL Entered.</p>";
         return;
     }
 
