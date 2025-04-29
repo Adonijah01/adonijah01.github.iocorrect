@@ -1,30 +1,56 @@
-{% if page.active == false %}
-  <div id="lock-message" style="border: 1px solid #f5c2c7; background: #f8d7da; padding: 1em; margin: 1em 0;">
-    <h3>🚧 This walkthrough is locked</h3>
-    <p>This lab is still active. The full content will be available when it's retired. Please check back later.</p>
 
-    {% if page.retire_date %}
-    <p id="countdown-timer" style="font-weight: bold;"></p>
+2. **Create `post.html`**: This file will contain the script and the restricted content. Ensure that the HTML structure is similar to your markdown content so that the page renders correctly.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulhub-Kiotrix Level 1 Walkthrough</title>
+</head>
+<body>
+    <div id="countdown-message" style="border: 1px solid #f5c2c7; background: #f8d7da; padding: 1em; margin: 1em 0;">
+        <h3>🚧 Full Walkthrough Locked</h3>
+        <p>The rest of this walkthrough is currently restricted as the machine is still active. Check back soon!</p>
+        <p id="countdown-timer" style="font-weight: bold;"></p>
+    </div>
+
     <script>
-      const retirementDate = new Date("{{ page.retire_date }}");
-      const countdown = document.getElementById("countdown-timer");
-      function updateCountdown() {
+        const retirementDate = new Date("2025-05-10T00:00:00Z"); // <- Customize this
         const now = new Date();
-        const diff = retirementDate - now;
-        if (diff <= 0) {
-          location.reload(); // Reload page when the lab retires
-        } else {
-          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-          const minutes = Math.floor((diff / (1000 * 60)) % 60);
-          const seconds = Math.floor((diff / 1000) % 60);
-          countdown.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining until release.`;
-        }
-      }
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const contentDiv = document.getElementById("restricted-content");
+            const messageDiv = document.getElementById("countdown-message");
+
+            if (now >= retirementDate) {
+                contentDiv.style.display = "block";
+                messageDiv.style.display = "none";
+            } else {
+                contentDiv.style.display = "none";
+                messageDiv.style.display = "block";
+
+                const countdown = document.getElementById("countdown-timer");
+                function updateCountdown() {
+                    const diff = retirementDate - new Date();
+                    if (diff <= 0) {
+                        countdown.innerText = "This lab has now been retired.";
+                        return;
+                    }
+
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                    const seconds = Math.floor((diff / 1000) % 60);
+
+                    countdown.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining until full walkthrough is available.`;
+                }
+
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }
+        });
     </script>
-    {% endif %}
-{% else %}
-  {{ content }}
-{% endif %}
+</body>
+</html>

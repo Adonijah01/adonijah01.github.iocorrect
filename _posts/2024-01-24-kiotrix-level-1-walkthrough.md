@@ -9,44 +9,7 @@ active: false
 retire_date: 2025-05-10T00:00:00Z
 layout: post
 ---
-<script>
-  const retirementDate = new Date("2025-05-10T00:00:00Z"); // <- Customize this
-  const now = new Date();
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const contentDiv = document.getElementById("restricted-content");
-    const messageDiv = document.getElementById("countdown-message");
-
-    if (now >= retirementDate) {
-      contentDiv.style.display = "block";
-      messageDiv.style.display = "none";
-    } else {
-      contentDiv.style.display = "none";
-      messageDiv.style.display = "block";
-
-      const countdown = document.getElementById("countdown-timer");
-      function updateCountdown() {
-        const diff = retirementDate - new Date();
-        if (diff <= 0) {
-          countdown.innerText = "This lab has now been retired.";
-          return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        countdown.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining until full walkthrough is available.`;
-      }
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
-  });
-</script>
-
-<!-- Message when content is restricted -->
 <div id="countdown-message" style="border: 1px solid #f5c2c7; background: #f8d7da; padding: 1em; margin: 1em 0;">
   <h3>🚧 Full Walkthrough Locked</h3>
   <p>The rest of this walkthrough is currently restricted as the machine is still active. Check back soon!</p>
