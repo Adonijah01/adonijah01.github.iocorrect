@@ -8,6 +8,32 @@ description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 
 active: true
 ---
 
+<script>
+  // Set to `false` if the machine is active and writeup should be hidden
+  const isRetired = true;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const walkthrough = document.getElementById("walkthrough");
+    const warning = document.getElementById("retirement-warning");
+
+    if (isRetired) {
+      walkthrough.style.display = "block";
+      warning.style.display = "none";
+    } else {
+      walkthrough.style.display = "none";
+      warning.style.display = "block";
+    }
+  });
+</script>
+
+<div id="retirement-warning" style="display:none; border: 1px solid #f00; padding: 1em; background: #fee;">
+  <h2>🚫 Walkthrough Not Available</h2>
+  <p>This machine is still active. Write-ups are restricted until it is retired.</p>
+  <p>Please review <a href="https://help.hackthebox.com/en/articles/5184601-writeups-policy" target="_blank">HTB’s write-up policy</a> for more info.</p>
+</div>
+
+<div id="walkthrough" style="display:none;">
+
 ## Introduction
 Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the vulnerable machine **Kioptrix Level 1** from VulnHub. There are various ways to root this box, and I will keep the process clear and concise. Let's get started.
 
@@ -93,3 +119,4 @@ whoami
 You've successfully completed Kiotrix Level 1. This walkthrough provided a step-by-step guide to solving the challenge. If you encountered any issues or have questions, feel free to reach out!
 
 Remember to document and understand the techniques used, as they may be helpful in future CTFs. **Happy hacking!**
+</div> <!-- End walkthrough -->
