@@ -1,9 +1,13 @@
-{% if page.htb_machine and page.htb_status == "active" %}
-  <div class="alert alert-warning">
-    <h3>🚫 Walkthrough Not Available</h3>
-    <p>This machine is still active on Hack The Box. In accordance with <a href="https://www.hackthebox.com/rules" target="_blank">HTB policy</a>, walkthroughs are only allowed once a machine is retired.</p>
-    <p>Please check back later.</p>
-  </div>
-{% else %}
+{% if page.is_retired %}
+  <!-- Show post content as usual -->
   {{ content }}
+{% else %}
+  <div class="htb-warning">
+    <h2>Content Not Available</h2>
+    <p>This write-up is for an active HTB machine and cannot be publicly displayed. 
+    Please check back once the machine is retired.</p>
+    <p>
+      See <a href="https://help.hackthebox.com/en/articles/5184601-writeups-policy" target="_blank">HTB’s write-up policy</a> for more info.
+    </p>
+  </div>
 {% endif %}
