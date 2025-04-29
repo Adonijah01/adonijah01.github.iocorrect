@@ -1,0 +1,14 @@
+{% if page.active %}
+  <!-- Show the first part of the post -->
+  {{ content | split: '<!--more-->' | first }}
+
+  <!-- Restrict the rest of the content -->
+  <div class="restricted-content">
+    <h2>Restricted Content</h2>
+    <p>This section is currently unavailable because the machine is still active on Hack The Box or TryHackMe. Please check back later once the machine is retired.</p>
+    <p><span style="color: red; font-weight: bold;">Note:</span> Machines that are still active cannot have their full writeups published to maintain the integrity of the challenges.</p>
+  </div>
+{% else %}
+  <!-- Show the full content -->
+  {{ content }}
+{% endif %}
