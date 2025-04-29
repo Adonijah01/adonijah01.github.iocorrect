@@ -21,7 +21,7 @@ Before you begin, ensure that you have the following:
 - **Kali Linux** or any other preferred penetration testing distribution.
 - **Kioptrix Level 1 VM** installed and running.
 ![Kioptrix VM Running](../assets/1kioprix.png)
-
+{% include restricted_content.html %}
 <!--more-->
 
 ## Walkthrough
@@ -94,4 +94,3 @@ whoami
 You've successfully completed Kiotrix Level 1. This walkthrough provided a step-by-step guide to solving the challenge. If you encountered any issues or have questions, feel free to reach out!
 
 Remember to document and understand the techniques used, as they may be helpful in future CTFs. **Happy hacking!**
-{% include restricted_content.html %}
