@@ -10,6 +10,8 @@ active: true # Set to true if the machine is still active
 {% if page.active %}
 ## Content Restricted
 This writeup is currently unavailable because the machine is still active on Hack The Box or TryHackMe. Please check back later once the machine is retired.
+
+<span style="color: red; font-weight: bold;">Note:</span> Machines that are still active on Hack The Box or TryHackMe cannot have their writeups published to maintain the integrity of the challenges.
 {% else %}
 ## Understanding Cloud Computing
 Cloud computing has transformed how businesses and individuals deploy, store, and manage applications. The three major cloud providers—**Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure**—offer a variety of services that cater to computing, storage, networking, security, and AI-driven applications. 
