@@ -16,7 +16,8 @@ Cloud computing has transformed how businesses and individuals deploy, store, an
 ### What Are AWS, GCP, and Azure?
 #### **Amazon Web Services (AWS)**
 AWS is the largest cloud provider, offering over 200 services ranging from computing (EC2, Lambda) to storage (S3, EBS), networking (VPC, Route 53), and security solutions (IAM, GuardDuty). 
-
+{% include restricted_content.html %}
+<!--more-->
 #### **Google Cloud Platform (GCP)**
 GCP is known for its advanced data analytics, machine learning capabilities, and Kubernetes-based container services. Key services include Compute Engine, Cloud Storage, and BigQuery.
 

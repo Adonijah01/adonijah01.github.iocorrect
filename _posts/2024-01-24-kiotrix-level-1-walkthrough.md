@@ -21,7 +21,6 @@ Before you begin, ensure that you have the following:
 - **Kali Linux** or any other preferred penetration testing distribution.
 - **Kioptrix Level 1 VM** installed and running.
 ![Kioptrix VM Running](../assets/1kioprix.png)
-{% include restricted_content.html %}
 <!--more-->
 
 ## Walkthrough
