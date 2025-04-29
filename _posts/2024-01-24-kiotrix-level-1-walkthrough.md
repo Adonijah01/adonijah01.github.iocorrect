@@ -10,12 +10,6 @@ retire_date: 2025-05-10T00:00:00Z
 layout: post
 ---
 
-<div id="countdown-message" style="border: 1px solid #f5c2c7; background: #f8d7da; padding: 1em; margin: 1em 0;">
-  <h3>🚧 Full Walkthrough Locked</h3>
-  <p>The rest of this walkthrough is currently restricted as the machine is still active. Check back soon!</p>
-  <p id="countdown-timer" style="font-weight: bold;"></p>
-</div>
-
 ## Introduction
 Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the vulnerable machine **Kioptrix Level 1** from VulnHub. There are various ways to root this box, and I will keep the process clear and concise. Let's get started.
 
