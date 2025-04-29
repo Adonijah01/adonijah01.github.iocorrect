@@ -4,8 +4,13 @@ date: 2025-03-23
 image: /assets/awsgcpazure.jpg
 category: "cloudsecurity"
 tags: [Cloud Security, AWS, GCP, Azure, Vulnerabilities]
+active: true # Set to true if the machine is still active
 ---
 
+{% if page.active %}
+## Content Restricted
+This writeup is currently unavailable because the machine is still active on Hack The Box or TryHackMe. Please check back later once the machine is retired.
+{% else %}
 ## Understanding Cloud Computing
 Cloud computing has transformed how businesses and individuals deploy, store, and manage applications. The three major cloud providers—**Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure**—offer a variety of services that cater to computing, storage, networking, security, and AI-driven applications. 
 
@@ -53,4 +58,5 @@ To mitigate cloud vulnerabilities, organizations should follow these best practi
 - **Automate security updates and patches** to reduce exposure to known vulnerabilities.
 
 ## Conclusion
-Cloud security is an evolving challenge, but understanding key risks and implementing best practices can help mitigate potential threats. AWS, GCP, and Azure offer various security tools, but it remains the user’s responsibility to configure and manage security effectively. 
+Cloud security is an evolving challenge, but understanding key risks and implementing best practices can help mitigate potential threats. AWS, GCP, and Azure offer various security tools, but it remains the user’s responsibility to configure and manage security effectively.
+{% endif %}
