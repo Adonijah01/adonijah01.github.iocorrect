@@ -1,0 +1,9 @@
+{% if page.htb_machine and page.htb_status == "active" %}
+  <div class="alert alert-warning">
+    <h3>🚫 Walkthrough Not Available</h3>
+    <p>This machine is still active on Hack The Box. In accordance with <a href="https://www.hackthebox.com/rules" target="_blank">HTB policy</a>, walkthroughs are only allowed once a machine is retired.</p>
+    <p>Please check back later.</p>
+  </div>
+{% else %}
+  {{ content }}
+{% endif %}
