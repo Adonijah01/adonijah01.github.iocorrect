@@ -1,6 +1,14 @@
 {% if page.is_retired %}
   <!-- Show post content as usual -->
   {{ content }}
+  <!-- Ensure image paths are correctly resolved -->
+  {% assign images = site.posts | where: "slug", page.slug %}
+  {% for post in images %}
+    {% assign images = post.images %}
+    {% for image in images %}
+      <img src="{{ image | relative_url }}" alt="Image for {{ page.title }}">
+    {% endfor %}
+  {% endfor %}
 {% else %}
   <div class="htb-warning">
     <h2>Content Not Available</h2>
