@@ -5,34 +5,50 @@ categories: [Vulnhub, CTF ]
 image: /assets/Kioptrix_Cover.jpg
 tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
-active: false
 ---
-
 <script>
-  // Set to `false` if the machine is active and writeup should be hidden
-  const isRetired = false;
+  const retirementDate = new Date("2025-05-10T00:00:00Z"); // <- Customize this
+  const now = new Date();
 
   document.addEventListener("DOMContentLoaded", function () {
-    const walkthrough = document.getElementById("walkthrough");
-    const warning = document.getElementById("retirement-warning");
+    const contentDiv = document.getElementById("restricted-content");
+    const messageDiv = document.getElementById("countdown-message");
 
-    if (isRetired) {
-      walkthrough.style.display = "block";
-      warning.style.display = "none";
+    if (now >= retirementDate) {
+      contentDiv.style.display = "block";
+      messageDiv.style.display = "none";
     } else {
-      walkthrough.style.display = "none";
-      warning.style.display = "block";
+      contentDiv.style.display = "none";
+      messageDiv.style.display = "block";
+
+      const countdown = document.getElementById("countdown-timer");
+      function updateCountdown() {
+        const diff = retirementDate - new Date();
+        if (diff <= 0) {
+          countdown.innerText = "This lab has now been retired.";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        countdown.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining until full walkthrough is available.`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
     }
   });
 </script>
 
-<div id="retirement-warning" style="display:none; border: 1px solid #f00; padding: 1em; background: #fee;">
-  <h2>🚫 Walkthrough Not Available</h2>
-  <p>This machine is still active. Write-ups are restricted until it is retired.</p>
-  <p>Please review <a href="https://help.hackthebox.com/en/articles/5184601-writeups-policy" target="_blank">HTB’s write-up policy</a> for more info.</p>
+<!-- Message when content is restricted -->
+<div id="countdown-message" style="border: 1px solid #f5c2c7; background: #f8d7da; padding: 1em; margin: 1em 0;">
+  <h3>🚧 Full Walkthrough Locked</h3>
+  <p>The rest of this walkthrough is currently restricted as the machine is still active. Check back soon!</p>
+  <p id="countdown-timer" style="font-weight: bold;"></p>
 </div>
-
-<div id="walkthrough" style="display:none;">
 
 ## Introduction
 Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the vulnerable machine **Kioptrix Level 1** from VulnHub. There are various ways to root this box, and I will keep the process clear and concise. Let's get started.
@@ -48,6 +64,8 @@ Before you begin, ensure that you have the following:
 - **Kioptrix Level 1 VM** installed and running.
 ![Kioptrix VM Running](../assets/1kioprix.png)
 
+<!-- START HIDDEN SECTION -->
+<div id="restricted-content" style="display: none;">
 
 ## Walkthrough
 ### Step 1: Reconnaissance
@@ -119,4 +137,4 @@ whoami
 You've successfully completed Kiotrix Level 1. This walkthrough provided a step-by-step guide to solving the challenge. If you encountered any issues or have questions, feel free to reach out!
 
 Remember to document and understand the techniques used, as they may be helpful in future CTFs. **Happy hacking!**
-</div> <!-- End walkthrough -->
+</div> <!-- End restricted-content -->
