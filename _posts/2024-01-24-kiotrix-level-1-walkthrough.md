@@ -1,10 +1,13 @@
 ---
 title: "Vulhub-Kiotrix Level 1 Walkthrough"
 date: 2024-01-24
-categories: [Vulnhub, CTF ]
+categories: [Vulnhub, CTF]
 image: /assets/Kioptrix_Cover.jpg
 tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
+active: false
+retire_date: 2025-05-10T00:00:00Z
+layout: post
 ---
 <script>
   const retirementDate = new Date("2025-05-10T00:00:00Z"); // <- Customize this

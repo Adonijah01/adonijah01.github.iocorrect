@@ -1,0 +1,30 @@
+{% if page.active == false %}
+  <div id="lock-message" style="border: 1px solid #f5c2c7; background: #f8d7da; padding: 1em; margin: 1em 0;">
+    <h3>🚧 This walkthrough is locked</h3>
+    <p>This lab is still active. The full content will be available when it's retired. Please check back later.</p>
+    {% if page.retire_date %}
+    <p id="countdown-timer" style="font-weight: bold;"></p>
+    <script>
+      const retirementDate = new Date("{{ page.retire_date }}");
+      const countdown = document.getElementById("countdown-timer");
+      function updateCountdown() {
+        const now = new Date();
+        const diff = retirementDate - now;
+        if (diff <= 0) {
+          countdown.innerText = "The full walkthrough is now available.";
+        } else {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+          countdown.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s remaining until release.`;
+        }
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+    {% endif %}
+  </div>
+{% else %}
+  {{ content }}
+{% endif %}
