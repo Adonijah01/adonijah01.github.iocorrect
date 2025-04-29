@@ -5,6 +5,7 @@ categories: [Vulnhub, CTF ]
 image: /assets/Kioptrix_Cover.jpg
 tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
+layout: restricted
 ---
 
 ## Introduction
