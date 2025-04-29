@@ -8,6 +8,7 @@ description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 
 active: false
 retire_date: 2025-05-10T00:00:00Z
 layout: post
+teaser: true
 ---
 
 ## Introduction
