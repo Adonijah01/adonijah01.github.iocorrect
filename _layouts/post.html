@@ -1,6 +1,0 @@
-{% if page.teaser %}
-  <p>{{ content | slice: 0, 300 }}...</p>  <!-- Show only first 300 characters as a teaser -->
-  <a href="{{ page.url }}">Read more</a>
-{% else %}
-  {{ content }}  <!-- Full post content displayed -->
-{% endif %}
