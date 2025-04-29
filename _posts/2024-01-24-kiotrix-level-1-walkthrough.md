@@ -10,7 +10,7 @@ active: true
 
 <script>
   // Set to `false` if the machine is active and writeup should be hidden
-  const isRetired = true;
+  const isRetired = false;
 
   document.addEventListener("DOMContentLoaded", function () {
     const walkthrough = document.getElementById("walkthrough");
