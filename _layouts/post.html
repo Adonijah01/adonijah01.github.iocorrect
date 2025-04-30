@@ -40,6 +40,29 @@ layout: default
       {% assign content = page.content | split: '---' | last %}
       {{ content }}
     {% endif %}
+
+    <!-- YouTube Walkthrough Section - Now appears on all posts -->
+    <div style="margin: 20px 0; padding: 15px; background-color: #2a2a2a; border-radius: 8px;">
+      <p style="color: #ffffff; margin-bottom: 10px;">🎥 <span style="color: #9fef00;">Video Walkthrough</span></p>
+      {% if page.youtube_id %}
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 10px;">
+          <a href="https://www.youtube.com/watch?v={{ page.youtube_id }}" target="_blank" style="text-decoration: none;">
+            <img src="https://img.youtube.com/vi/{{ page.youtube_id }}/maxresdefault.jpg" 
+                 alt="YouTube Video Thumbnail" 
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+              <svg style="width: 68px; height: 48px;" viewBox="0 0 68 48">
+                <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <p style="color: #9fef00; margin-bottom: 0;">Watch the walkthrough on YouTube</p>
+      {% else %}
+        <p style="color: #ffffff; margin-bottom: 0;">Video walkthrough not yet available</p>
+      {% endif %}
+    </div>
   </div>
 </article>
 
