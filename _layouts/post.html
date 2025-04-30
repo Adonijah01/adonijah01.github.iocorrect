@@ -15,10 +15,10 @@ layout: default
     {% if page.active %}
       {% assign teaser = page.content | split: '<img' | first %}
       {{ teaser | strip_html | truncatewords: 50 }}
-      {% assign first_image = page.content | split: '<img' | last | split: '>' | first %}
-      {% if first_image %}
+      {% assign image_content = page.content | split: '<img' | last | split: '>' | first %}
+      {% if image_content and image_content != '' %}
         <div class="post-image" style="margin: 20px 0;">
-          <img {{ first_image }} style="max-width: 100%; height: auto; border-radius: 8px;">
+          <img src="{{ image_content | split: 'src="' | last | split: '"' | first }}" alt="Post preview image" style="max-width: 100%; height: auto; border-radius: 8px;">
         </div>
       {% endif %}
       <div class="policy-message" style="background-color: #1a1a1a; border-left: 4px solid #9fef00; padding: 15px; margin: 20px 0; border-radius: 4px;">
