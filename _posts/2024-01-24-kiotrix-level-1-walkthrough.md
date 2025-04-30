@@ -5,16 +5,12 @@ categories: [Vulnhub, CTF]
 image: /assets/Kioptrix_Cover.jpg
 tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
-active: true
+active: false
 retire_date: 2025-05-10T00:00:00Z
 layout: post
 teaser: true
 ---
-## Teaser
-This machine is still active. Due to HTB/THM policies, only a teaser is shown. Check back later when the machine is retired!  
-If you need help, feel free to [contact me](/about).
 
-![Kioptrix VM Running](../assets/1kioprix.png)
 ## Introduction
 Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the vulnerable machine **Kioptrix Level 1** from VulnHub. There are various ways to root this box, and I will keep the process clear and concise. Let's get started.
 
