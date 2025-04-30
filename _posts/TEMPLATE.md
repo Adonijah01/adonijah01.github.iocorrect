@@ -6,6 +6,7 @@ image: /assets/machine-name.webp
 category: "HackTheBox"
 tags: [HTB, Boot2Root, Penetration Testing, Writeup]
 active: true  # Set to true for active machines, false for retired machines
+retire_date: YYYY-MM-DD  # The date when the machine will be retired (format: YYYY-MM-DD)
 ---
 
 ## Introduction
