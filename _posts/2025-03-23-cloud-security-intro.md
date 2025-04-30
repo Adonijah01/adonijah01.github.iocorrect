@@ -1,9 +1,11 @@
 ---
+layout: post
 title: "Introduction to Cloud Security: AWS, GCP, and Azure"
 date: 2025-03-23
 image: /assets/awsgcpazure.jpg
 category: "cloudsecurity"
 tags: [Cloud Security, AWS, GCP, Azure, Vulnerabilities]
+active: false
 
 ---
 
@@ -55,5 +57,5 @@ To mitigate cloud vulnerabilities, organizations should follow these best practi
 - **Automate security updates and patches** to reduce exposure to known vulnerabilities.
 
 ## Conclusion
-Cloud security is an evolving challenge, but understanding key risks and implementing best practices can help mitigate potential threats. AWS, GCP, and Azure offer various security tools, but it remains the user’s responsibility to configure and manage security effectively.
+Cloud security is an evolving challenge, but understanding key risks and implementing best practices can help mitigate potential threats. AWS, GCP, and Azure offer various security tools, but it remains the user's responsibility to configure and manage security effectively.
 

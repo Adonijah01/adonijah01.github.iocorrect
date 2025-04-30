@@ -24,14 +24,6 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {% if page.active %}
-      {% assign teaser = page.content | split: '<img' | first %}
-      {{ teaser | strip_html | truncatewords: 50 }}
-      {% assign image_content = page.content | split: '<img' | last | split: '>' | first %}
-      {% if image_content and image_content != '' %}
-        <div class="post-image" style="margin: 20px 0;">
-          <img src="{{ image_content | split: 'src="' | last | split: '"' | first }}" alt="Post preview image" style="max-width: 100%; height: auto; border-radius: 8px;">
-        </div>
-      {% endif %}
       <div class="policy-message" style="background-color: #1a1a1a; border-left: 4px solid #9fef00; padding: 15px; margin: 20px 0; border-radius: 4px;">
         <p style="color: #ffffff; margin-bottom: 10px;">This writeup is for an active machine and is hidden per HTB/THM policy. Please check back after the machine is retired, or contact me for help (see contact details below).</p>
         <p style="color: #9fef00; font-style: italic; margin-bottom: 10px;">Note: This policy is in place to maintain the integrity of the platform and ensure a fair learning experience for all users.</p>
