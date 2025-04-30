@@ -65,8 +65,7 @@ analytics:
   google:
     id: # fill in your Google Analytics ID
   goatcounter:
-    id: "5524"  # Your GoatCounter site code
-    count_url: "kimutsec.goatcounter.com"  # Your GoatCounter domain
+    id: # fill in your GoatCounter ID
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -82,8 +81,7 @@ analytics:
 pageviews:
   provider: goatcounter
   goatcounter:
-    code: "5524"  # Your GoatCounter site code
-    count_url: "kimutsec.goatcounter.com"  # Your GoatCounter domain
+    code: kimutsec
 
 # Prefer color scheme setting.
 #
