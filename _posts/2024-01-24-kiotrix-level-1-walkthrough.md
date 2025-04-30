@@ -7,6 +7,7 @@ tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
 active: true
 retire_date: 2025-05-10T00:00:00Z
+youtube_id: "https://www.youtube.com/watch?v=9DsBlRrmBRM&t=1005s"
 
 ---
 
