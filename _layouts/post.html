@@ -24,24 +24,24 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {% if page.active %}
-      {% assign content_parts = page.content | split: '## Machine Details' %}
+      {% assign content_parts = page.content | split: '## Challenge Details' %}
       {% if content_parts.size > 1 %}
         {{ content_parts[0] }}
-        <div class="machine-details">
+        <div class="challenge-details">
           {{ content_parts[1] | split: '##' | first }}
         </div>
       {% else %}
-        {% assign content_parts = page.content | split: '## Machine Information' %}
+        {% assign content_parts = page.content | split: '## Challenge Information' %}
         {% if content_parts.size > 1 %}
           {{ content_parts[0] }}
-          <div class="machine-details">
+          <div class="challenge-details">
             {{ content_parts[1] | split: '##' | first }}
           </div>
         {% else %}
           {% assign content_parts = page.content | split: '## Details' %}
           {% if content_parts.size > 1 %}
             {{ content_parts[0] }}
-            <div class="machine-details">
+            <div class="challenge-details">
               {{ content_parts[1] | split: '##' | first }}
             </div>
           {% else %}
