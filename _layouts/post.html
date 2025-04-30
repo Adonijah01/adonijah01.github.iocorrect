@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
+    </p>
+  </header>
+
+  <div class="post-content">
+    {% if page.active %}
+      {% assign teaser = page.content | split: '<img' | first %}
+      {{ teaser | strip_html | truncatewords: 50 }}
+      <div class="policy-message">
+        <p>This writeup is for an active machine and is hidden per HTB/THM policy. Please check back after the machine is retired, or contact me for help (see contact details below).</p>
+        <p><a href="{{ page.url }}">Link to this post</a></p>
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </div>
+</article> 
