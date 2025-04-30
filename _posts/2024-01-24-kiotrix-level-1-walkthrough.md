@@ -12,7 +12,7 @@ teaser: true
 ---
 ## Teaser
 This machine is still active. Due to HTB/THM policies, only a teaser is shown. Check back later when the machine is retired!  
-If you need help, feel free to [contact me](/contact).
+If you need help, feel free to [contact me](/about).
 
 ![Kioptrix VM Running](../assets/1kioprix.png)
 ## Introduction
