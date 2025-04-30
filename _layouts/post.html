@@ -15,7 +15,7 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
       {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
       <span class="post-views">
-        <i class="fas fa-eye"></i> <span data-goatcounter="https://3871.goatcounter.com/count" 
+        <i class="fas fa-eye"></i> <span data-goatcounter-count="3871.goatcounter.com/count" 
                                         data-goatcounter-title="{{ page.title }}"
                                         data-goatcounter-display="views">0</span> views
       </span>
@@ -48,8 +48,9 @@ layout: default
 <!-- GoatCounter Analytics -->
 <script>
   window.goatcounter = {
-    path: function(p) { return location.host + p; }
+    path: function(p) { return window.location.pathname; },
+    allow_local: true
   }
 </script>
-<script data-goatcounter="https://3871.goatcounter.com/count" 
-        async src="https://gc.zgo.at/count.js"></script> 
+<script data-goatcounter="3871.goatcounter.com/count" 
+        async src="//gc.zgo.at/count.js"></script> 
