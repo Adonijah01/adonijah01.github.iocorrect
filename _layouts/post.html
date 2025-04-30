@@ -37,6 +37,7 @@ layout: default
         <img src="https://www.hackthebox.com/images/logo-htb.svg" alt="HackTheBox Logo" class="htb-logo" style="width: 150px; height: auto; margin-top: 20px;">
       </div>
     {% else %}
+      {% assign content = page.content | split: '---' | last %}
       {{ content }}
     {% endif %}
   </div>
