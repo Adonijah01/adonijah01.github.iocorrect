@@ -1,0 +1,9 @@
+{% if page.active %}
+  <div class="teaser">
+    <p>This machine is still active. Due to HTB/THM policies, only a teaser is shown. Check back later when the machine is retired!</p>
+    <p>If you need help, feel free to <a href="/contact">contact me</a>.</p>
+    <p><a href="{{ page.url }}">Read more...</a></p>
+  </div>
+{% else %}
+  {{ content }}
+{% endif %}
