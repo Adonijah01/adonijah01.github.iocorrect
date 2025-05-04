@@ -5,7 +5,7 @@ categories: [Vulnhub, CTF]
 image: /assets/Kioptrix_Cover.jpg
 tags: [Kioptrix, Boot2Root, Penetration Testing, Samba Exploit]
 description: "A walkthrough for hacking the vulnerable machine Kioptrix Level 1 from VulnHub."
-active: true
+active: false
 retire_date: 2025-05-10T00:00:00Z
 youtube_id: "https://www.youtube.com/watch?v=9DsBlRrmBRM&t=1005s"
 
@@ -17,7 +17,7 @@ Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the 
 ## Challenge Details
 - **Name:** Kiotrix Level 1  
 - **Category:** Boot2Root  
-- **Difficulty:** Easy  
+- **Difficulty:** Easy/  
 
 ## Prerequisites
 Before you begin, ensure that you have the following:
@@ -26,7 +26,7 @@ Before you begin, ensure that you have the following:
 ![Kioptrix VM Running](../assets/1kioprix.png)
 ## Walkthrough
 ### Step 1: Reconnaissance
-#### Network Discovery and Setup
+#### Network Discovery and Setupp
 Execute the following command on your attack machine to check if Kioptrix Level 1 is on the network:
 ```bash
 arp-scan -l
