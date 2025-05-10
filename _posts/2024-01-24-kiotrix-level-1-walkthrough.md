@@ -17,7 +17,7 @@ Welcome to the Kiotrix Level 1 challenge. This is a walkthrough for hacking the 
 ## Challenge Details
 - **Name:** Kiotrix Level 1  
 - **Category:** Boot2Root  
-- **Difficulty:** Easy/  
+- **Difficulty:** Easy
 
 ## Prerequisites
 Before you begin, ensure that you have the following:
